@@ -15,7 +15,7 @@ import (
 	"github.com/aws/aws-sdk-go/service/ec2"
 	"github.com/aws/aws-sdk-go/service/route53"
 
-	"github.com/coreos/coreos-kubernetes/multi-node/aws/pkg/config"
+	"github.com/gleeb/coreos-kubernetes/multi-node/aws/pkg/config"
 )
 
 // VERSION set by build script

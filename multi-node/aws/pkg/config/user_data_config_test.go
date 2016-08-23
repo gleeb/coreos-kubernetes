@@ -6,7 +6,7 @@ import (
 	"text/template"
 
 	"github.com/aws/aws-sdk-go/service/kms"
-	"github.com/coreos/coreos-cloudinit/config/validate"
+	"github.com/gleeb/coreos-cloudinit/config/validate"
 )
 
 type dummyEncryptService struct{}
