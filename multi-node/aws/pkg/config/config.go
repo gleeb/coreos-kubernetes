@@ -18,9 +18,9 @@ import (
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/kms"
 
-	"github.com/gleeb/coreos-cloudinit/config/validate"
+	"github.com/coreos/coreos-cloudinit/config/validate"
 	"github.com/gleeb/coreos-kubernetes/multi-node/aws/pkg/coreosutil"
-	"github.com/gleeb/go-semver/semver"
+	"github.com/coreos/go-semver/semver"
 	yaml "gopkg.in/yaml.v2"
 )
 
