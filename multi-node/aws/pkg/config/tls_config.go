@@ -73,7 +73,7 @@ func (c *Cluster) NewTLSAssets() (*RawTLSAssets, error) {
 			"kubernetes.default",
 			"kubernetes.default.svc",
 			"kubernetes.default.svc.cluster.local",
-			c.ExternalDNSName,
+			"*.vatbox.com",
 		},
 		IPAddresses: []string{
 			c.ControllerIP,
