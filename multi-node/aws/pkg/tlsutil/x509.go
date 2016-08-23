@@ -1,6 +1,7 @@
 package tlsutil
 
 import (
+	"fmt"
 	"crypto/rand"
 	"crypto/rsa"
 	"crypto/x509"
@@ -34,6 +35,7 @@ type ClientCertConfig struct {
 }
 
 func NewSelfSignedCACertificate(cfg CACertConfig, key *rsa.PrivateKey) (*x509.Certificate, error) {
+	fmt.Println(Duration90d)
 	now := time.Now()
 	tmpl := x509.Certificate{
 		SerialNumber: new(big.Int).SetInt64(0),
@@ -56,6 +58,7 @@ func NewSelfSignedCACertificate(cfg CACertConfig, key *rsa.PrivateKey) (*x509.Ce
 }
 
 func NewSignedServerCertificate(cfg ServerCertConfig, key *rsa.PrivateKey, caCert *x509.Certificate, caKey *rsa.PrivateKey) (*x509.Certificate, error) {
+	fmt.Println(Duration90d)
 	ips := make([]net.IP, len(cfg.IPAddresses))
 	for i, ipStr := range cfg.IPAddresses {
 		ips[i] = net.ParseIP(ipStr)
@@ -87,6 +90,7 @@ func NewSignedServerCertificate(cfg ServerCertConfig, key *rsa.PrivateKey, caCer
 }
 
 func NewSignedClientCertificate(cfg ClientCertConfig, key *rsa.PrivateKey, caCert *x509.Certificate, caKey *rsa.PrivateKey) (*x509.Certificate, error) {
+	fmt.Println(Duration90d)
 	ips := make([]net.IP, len(cfg.IPAddresses))
 	for i, ipStr := range cfg.IPAddresses {
 		ips[i] = net.ParseIP(ipStr)
