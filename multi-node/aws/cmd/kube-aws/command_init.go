@@ -23,6 +23,22 @@ var (
 	initOpts = config.Config{}
 )
 
+const clusterletter = `
+
+clusterName: {{.ClusterName}}
+
+externalDNSName: {{.ExternalDNSName}}
+
+keyName: {{.KeyName}}
+
+region: {{.Region}}
+
+availabilityZone: {{.AvailabilityZone}}
+
+kmsKeyArn: "{{.KMSKeyARN}}"
+
+`
+
 func init() {
 	cmdRoot.AddCommand(cmdInit)
 	cmdInit.Flags().StringVar(&initOpts.ClusterName, "cluster-name", "", "The name of this cluster. This will be the name of the cloudformation stack")
@@ -56,7 +72,7 @@ func runCmdInit(cmd *cobra.Command, args []string) error {
 	}
 
 	// Render the default cluster config.
-	cfgTemplate, err := template.New("cluster.yaml").Parse(string(config.DefaultClusterConfig))
+	cfgTemplate, err := template.New("cluster.yaml").Parse(clusterletter)
 	if err != nil {
 		return fmt.Errorf("Error parsing default config template: %v", err)
 	}
